@@ -1,0 +1,102 @@
+# Free LLM API Provider Configuration
+
+providers:
+  - name: "OpenRouter"
+    website: "https://openrouter.ai"
+    api_type: "openai"
+    free: true
+    rate_limit: "20 req/min, 50 req/day"
+    models:
+      - "meta-llama/llama-3.2-3b-instruct:free"
+      - "google/gemma-3-12b-it:free"
+      - "qwen/qwen3-4b:free"
+      - "mistralai/mistral-small-3.1-24b-instruct:free"
+    signup_url: "https://openrouter.ai/"
+
+  - name: "Google AI Studio"
+    website: "https://aistudio.google.com"
+    api_type: "google"
+    free: true
+    rate_limit: "250K tokens/min"
+    models:
+      - "gemini-2.0-flash"
+      - "gemini-1.5-flash"
+      - "gemma-3-27b-instruct"
+    signup_url: "https://aistudio.google.com/app/apikey"
+
+  - name: "Groq"
+    website: "https://groq.com"
+    api_type: "openai"
+    free: true
+    rate_limit: "varies"
+    models:
+      - "llama-3.1-70b-versatile"
+      - "llama-3.1-8b-instant"
+      - "mixtral-8x7b-32768"
+    signup_url: "https://console.groq.com/"
+
+  - name: "Mistral La Plateforme"
+    website: "https://console.mistral.ai"
+    api_type: "openai"
+    free: true
+    rate_limit: "1 req/sec, 500K tokens/min"
+    models:
+      - "mistral-small-latest"
+      - "mistral-large-latest"
+      - "codestral-latest"
+    signup_url: "https://console.mistral.ai/"
+
+  - name: "Cerebras"
+    website: "https://cloud.cerebras.ai"
+    api_type: "openai"
+    free: true
+    rate_limit: "varies"
+    models:
+      - "llama-3.1-70b"
+    signup_url: "https://cloud.cerebras.ai/"
+
+  - name: "Cohere"
+    website: "https://cohere.com"
+    api_type: "openai"
+    free: true
+    rate_limit: "varies"
+    models:
+      - "command-r"
+      - "command-r-plus"
+    signup_url: "https://dashboard.cohere.com/"
+
+  - name: "GitHub Models"
+    website: "https://github.com/marketplace/models"
+    api_type: "openai"
+    free: true
+    rate_limit: "varies"
+    models:
+      - "Llama-3.2-3B-Instruct"
+      - "Phi-3.5-mini-instruct"
+    signup_url: "https://github.com/marketplace/models"
+
+  - name: "Cloudflare Workers AI"
+    website: "https://workers.cloudflare.com"
+    api_type: "openai"
+    free: true
+    rate_limit: "varies"
+    models:
+      - "@cf/meta/llama-3.1-8b-instruct"
+    signup_url: "https://dash.cloudflare.com/"
+
+# Trial-based (need credit card but free credits)
+trial_providers:
+  - name: "Fireworks"
+    website: "https://fireworks.ai"
+    trial_credits: "$20"
+    signup_url: "https://fireworks.ai/"
+
+  - name: "Nebius"
+    website: "https://nebius.com"
+    trial_credits: "$20"
+    signup_url: "https://nebius.com/"
+
+  - name: "Novita AI"
+    website: "https://novita.ai"
+    trial_credits: "$10"
+    signup_url: "https://novita.ai/"
