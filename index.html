@@ -78,11 +78,18 @@
             margin-top: 12px;
         }
         
+        .section-title {
+            font-size: 1.5rem;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+        
         .providers-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 20px;
-            padding: 40px 0;
+            padding: 20px 0 40px;
         }
         
         .provider-card {
@@ -227,6 +234,34 @@
             font-size: 16px;
         }
         
+        .local-tool-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .local-tool-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        
+        .local-tool-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        
+        .install-cmd {
+            background: var(--bg-primary);
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 13px;
+            color: var(--accent);
+            word-break: break-all;
+        }
+        
         footer {
             text-align: center;
             padding: 40px 0;
@@ -259,6 +294,7 @@
             <p class="last-update">最后更新：2026-03-26</p>
         </header>
         
+        <h2 class="section-title">☁️ 云端免费 API</h2>
         <div class="providers-grid">
             <!-- OpenRouter -->
             <div class="provider-card">
@@ -478,6 +514,344 @@
                 <div class="quota-info">
                     <span class="quota-item"><span class="quota-icon">💵</span>$200额度</span>
                     <span class="quota-item"><span class="quota-icon">📅</span>180天有效</span>
+                </div>
+            </div>
+
+            <!-- Novita AI -->
+            <div class="provider-card">
+                <div class="provider-header">
+                    <div class="provider-logo" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);">N</div>
+                    <span class="provider-name">Novita AI</span>
+                    <span class="provider-status"><span class="dot"></span>可用</span>
+                </div>
+                <p class="provider-desc">免费API平台，赠送积分，支持Llama/DeepSeek/Qwen等主流模型</p>
+                <div class="models-list">
+                    <span class="model-tag">Llama 3.3 70B</span>
+                    <span class="model-tag">DeepSeek Chat</span>
+                    <span class="model-tag">Qwen 2.5 72B</span>
+                    <span class="model-tag">Mistral 7B</span>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">API Endpoint</div>
+                    <div class="api-value">https://api.novita.ai/v1/chat/completions <button class="copy-btn" onclick="copyText('https://api.novita.ai/v1/chat/completions')">复制</button></div>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">获取Key</div>
+                    <div class="api-value"><a href="https://novita.ai/" target="_blank" style="color: var(--accent);">novita.ai</a></div>
+                </div>
+                <div class="quota-info">
+                    <span class="quota-item"><span class="quota-icon">🎁</span>新用户赠送</span>
+                    <span class="quota-item"><span class="quota-icon">⚡</span>高速响应</span>
+                </div>
+            </div>
+
+            <!-- Hyperbolic -->
+            <div class="provider-card">
+                <div class="provider-header">
+                    <div class="provider-logo" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">H</div>
+                    <span class="provider-name">Hyperbolic</span>
+                    <span class="provider-status"><span class="dot"></span>可用</span>
+                </div>
+                <p class="provider-desc">开源AI API平台，每月免费额度，支持高并发</p>
+                <div class="models-list">
+                    <span class="model-tag">Llama 3.1 70B</span>
+                    <span class="model-tag">Qwen 2.5 72B</span>
+                    <span class="model-tag">Mistral 7B</span>
+                    <span class="model-tag">DeepSeek Chat</span>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">API Endpoint</div>
+                    <div class="api-value">https://api.hyperbolic.xyz/v1/chat/completions <button class="copy-btn" onclick="copyText('https://api.hyperbolic.xyz/v1/chat/completions')">复制</button></div>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">获取Key</div>
+                    <div class="api-value"><a href="https://hyperbolic.xyz/" target="_blank" style="color: var(--accent);">hyperbolic.xyz</a></div>
+                </div>
+                <div class="quota-info">
+                    <span class="quota-item"><span class="quota-icon">🆓</span>每月免费</span>
+                    <span class="quota-item"><span class="quota-icon">🔥</span>高并发</span>
+                </div>
+            </div>
+
+            <!-- Cerebras -->
+            <div class="provider-card">
+                <div class="provider-header">
+                    <div class="provider-logo" style="background: linear-gradient(135deg, #ef4444, #f97316);">CB</div>
+                    <span class="provider-name">Cerebras</span>
+                    <span class="provider-status"><span class="dot"></span>可用</span>
+                </div>
+                <p class="provider-desc">超高速AI推理芯片，速度可达1800 tokens/sec，完全免费</p>
+                <div class="models-list">
+                    <span class="model-tag">Llama 3.1 70B</span>
+                    <span class="model-tag">Llama 3 70B</span>
+                    <span class="model-tag">Mistral 7B</span>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">API Endpoint</div>
+                    <div class="api-value">https://api.cerebras.ai/v1/chat/completions <button class="copy-btn" onclick="copyText('https://api.cerebras.ai/v1/chat/completions')">复制</button></div>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">获取Key</div>
+                    <div class="api-value"><a href="https://cloud.cerebras.ai/" target="_blank" style="color: var(--accent);">cloud.cerebras.ai</a></div>
+                </div>
+                <div class="quota-info">
+                    <span class="quota-item"><span class="quota-icon">⚡</span>1800 tokens/s</span>
+                    <span class="quota-item"><span class="quota-icon">🆓</span>完全免费</span>
+                </div>
+            </div>
+
+            <!-- Mistral (Le Chat) -->
+            <div class="provider-card">
+                <div class="provider-header">
+                    <div class="provider-logo" style="background: linear-gradient(135deg, #ff4d4d, #f9cb28);">M</div>
+                    <span class="provider-name">Mistral Le Chat</span>
+                    <span class="provider-status"><span class="dot"></span>可用</span>
+                </div>
+                <p class="provider-desc">Mistral官方免费Chat API，无需API Key即可体验</p>
+                <div class="models-list">
+                    <span class="model-tag">mistral-large-latest</span>
+                    <span class="model-tag">mistral-small-latest</span>
+                    <span class="model-tag">pixtral-large</span>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">API Endpoint</div>
+                    <div class="api-value">https://api.mistral.ai/v1/chat/completions <button class="copy-btn" onclick="copyText('https://api.mistral.ai/v1/chat/completions')">复制</button></div>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">获取Key</div>
+                    <div class="api-value"><a href="https://console.mistral.ai/" target="_blank" style="color: var(--accent);">console.mistral.ai</a></div>
+                </div>
+                <div class="quota-info">
+                    <span class="quota-item"><span class="quota-icon">🆓</span>免费额度</span>
+                    <span class="quota-item"><span class="quota-icon">🇪🇺</span>欧洲合规</span>
+                </div>
+            </div>
+
+            <!-- GitHub Models -->
+            <div class="provider-card">
+                <div class="provider-header">
+                    <div class="provider-logo" style="background: linear-gradient(135deg, #24292e, #586069);">GH</div>
+                    <span class="provider-name">GitHub Models</span>
+                    <span class="provider-status"><span class="dot"></span>可用</span>
+                </div>
+                <p class="provider-desc">GitHub官方AI模型市场，免费额度支持OpenAI/Azure模型</p>
+                <div class="models-list">
+                    <span class="model-tag">GPT-4o</span>
+                    <span class="model-tag">GPT-4o-mini</span>
+                    <span class="model-tag">Llama 3.1</span>
+                    <span class="model-tag">Mistral 7B</span>
+                    <span class="model-tag">Phi-4</span>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">API Endpoint</div>
+                    <div class="api-value">https://models.inference.ai.dev/v1/chat/completions <button class="copy-btn" onclick="copyText('https://models.inference.ai.dev/v1/chat/completions')">复制</button></div>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">获取Key</div>
+                    <div class="api-value"><a href="https://github.com/marketplace/models" target="_blank" style="color: var(--accent);">github.com/marketplace/models</a></div>
+                </div>
+                <div class="quota-info">
+                    <span class="quota-item"><span class="quota-icon">🆓</span>免费额度</span>
+                    <span class="quota-item"><span class="quota-icon">🔗</span>GitHub集成</span>
+                </div>
+            </div>
+
+            <!-- Fireworks AI -->
+            <div class="provider-card">
+                <div class="provider-header">
+                    <div class="provider-logo" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">FW</div>
+                    <span class="provider-name">Fireworks AI</span>
+                    <span class="provider-status"><span class="dot"></span>可用</span>
+                </div>
+                <p class="provider-desc">高性能推理平台，新用户赠送免费积分，支持100+模型</p>
+                <div class="models-list">
+                    <span class="model-tag">Llama 3.3 70B</span>
+                    <span class="model-tag">Qwen 2.5 72B</span>
+                    <span class="model-tag">DeepSeek V3</span>
+                    <span class="model-tag">Firefunction</span>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">API Endpoint</div>
+                    <div class="api-value">https://api.fireworks.ai/v1/chat/completions <button class="copy-btn" onclick="copyText('https://api.fireworks.ai/v1/chat/completions')">复制</button></div>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">获取Key</div>
+                    <div class="api-value"><a href="https://fireworks.ai/" target="_blank" style="color: var(--accent);">fireworks.ai</a></div>
+                </div>
+                <div class="quota-info">
+                    <span class="quota-item"><span class="quota-icon">🎁</span>新用户赠送</span>
+                    <span class="quota-item"><span class="quota-icon">🤖</span>100+模型</span>
+                </div>
+            </div>
+
+            <!-- Perplexity -->
+            <div class="provider-card">
+                <div class="provider-header">
+                    <div class="provider-logo" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">P</div>
+                    <span class="provider-name">Perplexity (Sonar)</span>
+                    <span class="provider-status"><span class="dot"></span>可用</span>
+                </div>
+                <p class="provider-desc">AI搜索先驱者，提供Sonar系列模型，支持联网搜索</p>
+                <div class="models-list">
+                    <span class="model-tag">sonar-small</span>
+                    <span class="model-tag">sonar-medium</span>
+                    <span class="model-tag">sonar-large</span>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">API Endpoint</div>
+                    <div class="api-value">https://api.perplexity.ai/chat/completions <button class="copy-btn" onclick="copyText('https://api.perplexity.ai/chat/completions')">复制</button></div>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">获取Key</div>
+                    <div class="api-value"><a href="https://docs.perplexity.ai/" target="_blank" style="color: var(--accent);">docs.perplexity.ai</a></div>
+                </div>
+                <div class="quota-info">
+                    <span class="quota-item"><span class="quota-icon">🔍</span>联网搜索</span>
+                    <span class="quota-item"><span class="quota-icon">📊</span>免费额度</span>
+                </div>
+            </div>
+
+            <!-- Anthropic (Free Trial) -->
+            <div class="provider-card">
+                <div class="provider-header">
+                    <div class="provider-logo" style="background: linear-gradient(135deg, #d97706, #f59e0b);">A</div>
+                    <span class="provider-name">Anthropic (Claude)</span>
+                    <span class="provider-status"><span class="dot"></span>可用</span>
+                </div>
+                <p class="provider-desc">新用户免费试用额度，Claude 3.5 Sonnet 能力强劲</p>
+                <div class="models-list">
+                    <span class="model-tag">claude-sonnet-3-5</span>
+                    <span class="model-tag">claude-haiku-3-5</span>
+                    <span class="model-tag">claude-opus-3-5</span>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">API Endpoint</div>
+                    <div class="api-value">https://api.anthropic.com/v1/messages <button class="copy-btn" onclick="copyText('https://api.anthropic.com/v1/messages')">复制</button></div>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">获取Key</div>
+                    <div class="api-value"><a href="https://www.anthropic.com/zh" target="_blank" style="color: var(--accent);">anthropic.com</a></div>
+                </div>
+                <div class="quota-info">
+                    <span class="quota-item"><span class="quota-icon">🎁</span>新用户免费</span>
+                    <span class="quota-item"><span class="quota-icon">🧠</span>超强推理</span>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="section-title">💻 本地部署模型</h2>
+        <div class="providers-grid">
+            <!-- Ollama -->
+            <div class="provider-card">
+                <div class="provider-header">
+                    <div class="provider-logo" style="background: linear-gradient(135deg, #3b82f6, #06b6d4);">O</div>
+                    <span class="provider-name">Ollama</span>
+                    <span class="provider-status"><span class="dot"></span>本地运行</span>
+                </div>
+                <p class="provider-desc">命令行本地大模型运行工具，支持Mac/Linux/Windows</p>
+                <div class="models-list">
+                    <span class="model-tag">llama3.3</span>
+                    <span class="model-tag">qwen2.5</span>
+                    <span class="model-tag">mistral</span>
+                    <span class="model-tag">deepseek-coder</span>
+                    <span class="model-tag">phi4</span>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">本地 API</div>
+                    <div class="api-value">http://localhost:11434/api/chat <button class="copy-btn" onclick="copyText('http://localhost:11434/api/chat')">复制</button></div>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">安装命令 (macOS)</div>
+                    <div class="api-value install-cmd">brew install ollama</div>
+                </div>
+                <div class="quota-info">
+                    <span class="quota-item"><span class="quota-icon">🔒</span>隐私安全</span>
+                    <span class="quota-item"><span class="quota-icon">💾</span>免费无限</span>
+                </div>
+            </div>
+            
+            <!-- LM Studio -->
+            <div class="provider-card">
+                <div class="provider-header">
+                    <div class="provider-logo" style="background: linear-gradient(135deg, #8b5cf6, #d946ef);">LM</div>
+                    <span class="provider-name">LM Studio</span>
+                    <span class="provider-status"><span class="dot"></span>本地运行</span>
+                </div>
+                <p class="provider-desc">桌面应用，图形界面运行本地大模型，支持模型下载管理</p>
+                <div class="models-list">
+                    <span class="model-tag">Llama 3.3</span>
+                    <span class="model-tag">Qwen 2.5</span>
+                    <span class="model-tag">Mistral</span>
+                    <span class="model-tag">Phi-4</span>
+                    <span class="model-tag">DeepSeek</span>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">本地 API</div>
+                    <div class="api-value">http://localhost:1234/v1/chat/completions <button class="copy-btn" onclick="copyText('http://localhost:1234/v1/chat/completions')">复制</button></div>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">下载</div>
+                    <div class="api-value"><a href="https://lmstudio.ai/" target="_blank" style="color: var(--accent);">lmstudio.ai</a></div>
+                </div>
+                <div class="quota-info">
+                    <span class="quota-item"><span class="quota-icon">🖥️</span>图形界面</span>
+                    <span class="quota-item"><span class="quota-icon">📦</span>模型管理</span>
+                </div>
+            </div>
+            
+            <!-- GPT4All -->
+            <div class="provider-card">
+                <div class="provider-header">
+                    <div class="provider-logo" style="background: linear-gradient(135deg, #10b981, #059669);">G4A</div>
+                    <span class="provider-name">GPT4All</span>
+                    <span class="provider-status"><span class="dot"></span>本地运行</span>
+                </div>
+                <p class="provider-desc">免费本地大模型运行工具，支持CPU/GPU，隐私优先</p>
+                <div class="models-list">
+                    <span class="model-tag">Llama 3.1</span>
+                    <span class="model-tag">Mistral</span>
+                    <span class="model-tag">Phi-3</span>
+                    <span class="model-tag">Neural Chat</span>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">本地 API</div>
+                    <div class="api-value">http://localhost:4891/v1/chat/completions <button class="copy-btn" onclick="copyText('http://localhost:4891/v1/chat/completions')">复制</button></div>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">下载</div>
+                    <div class="api-value"><a href="https://gpt4all.io/" target="_blank" style="color: var(--accent);">gpt4all.io</a></div>
+                </div>
+                <div class="quota-info">
+                    <span class="quota-item"><span class="quota-icon">🔒</span>隐私优先</span>
+                    <span class="quota-item"><span class="quota-icon">🆓</span>完全免费</span>
+                </div>
+            </div>
+            
+            <!-- Jan -->
+            <div class="provider-card">
+                <div class="provider-header">
+                    <div class="provider-logo" style="background: linear-gradient(135deg, #f59e0b, #d97706);">J</div>
+                    <span class="provider-name">Jan</span>
+                    <span class="provider-status"><span class="dot"></span>本地运行</span>
+                </div>
+                <p class="provider-desc">开源本地AI替代ChatGPT，完全离线运行，数据留在本地</p>
+                <div class="models-list">
+                    <span class="model-tag">Llama 3</span>
+                    <span class="model-tag">Qwen</span>
+                    <span class="model-tag">Mistral</span>
+                    <span class="model-tag">DeepSeek</span>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">本地 API</div>
+                    <div class="api-value">http://localhost:1337/v1/chat/completions <button class="copy-btn" onclick="copyText('http://localhost:1337/v1/chat/completions')">复制</button></div>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">下载</div>
+                    <div class="api-value"><a href="https://jan.ai/" target="_blank" style="color: var(--accent);">jan.ai</a></div>
+                </div>
+                <div class="quota-info">
+                    <span class="quota-item"><span class="quota-icon">🔒</span>数据本地</span>
+                    <span class="quota-item"><span class="quota-icon">🛜</span>完全离线</span>
                 </div>
             </div>
         </div>
