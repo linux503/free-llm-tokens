@@ -120,9 +120,69 @@ curl https://api.groq.com/openai/v1/chat/completions \
 
 **[https://linux503.github.io/free-llm-tokens/](https://linux503.github.io/free-llm-tokens/)**
 
+## 📧 联系与反馈
+
+如果您有任何问题或建议，欢迎随时联系：
+- Email: abbtoe@yandex.com
+
 ## 🤝 贡献
 
 欢迎提交 PR 更新新的免费 API 资源！
+
+## 🔍 更多 GitHub 搜索关键词
+
+### 免费 API 聚合器
+```
+free-api-aggregator llm
+free llm proxy gateway
+multi-llm-api-wrapper
+llm-api-aggregator free
+```
+
+### 免费模型列表
+```
+free-gpt-models gpt4-free
+free-llm-models-list
+free-open-source-llm
+free-ai-models-api
+```
+
+### 开发者工具
+```
+llm-dashboard free
+chatbot-template free
+ai-api-key-generator
+free-api-key-tools
+```
+
+### 自托管方案
+```
+self-hosted-llm docker
+local-ai-gateway
+ollama-api-server
+llm-self-host-guide
+```
+
+### 特定模型相关
+```
+deepseek-api-free
+qwen-api-open-source
+llama3-free-api
+minimax-api-free
+kimi-api-open
+```
+
+### 中文搜索关键词
+```
+免费GPT API
+免费大模型API
+免费LLM API接口
+免费AI API key
+国内免费LLM
+ChatGPT免费替代
+GPT4免费调用
+AI大模型免费API
+```
 
 ## 📄 许可证
 
