@@ -3,249 +3,499 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free LLM Tokens - 免费大模型API共享</title>
+    <title>免费 LLM API 资源导航 | 每日更新</title>
+    <meta name="description" content="汇集互联网免费大模型API接口地址、模型配置参数，每日更新，帮助开发者快速接入AI能力">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%); min-height: 100vh; color: #fff; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-        header { text-align: center; margin-bottom: 50px; }
-        h1 { font-size: 2.8rem; margin-bottom: 10px; background: linear-gradient(90deg, #00d4ff, #7b2cbf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .subtitle { color: #aaa; font-size: 1.2rem; margin-bottom: 20px; }
-        .hero-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
-        .section { background: rgba(255,255,255,0.03); border-radius: 20px; padding: 30px; margin-bottom: 25px; border: 1px solid rgba(255,255,255,0.08); }
-        .section h2 { font-size: 1.4rem; margin-bottom: 25px; color: #00d4ff; display: flex; align-items: center; gap: 10px; }
-        .provider-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }
-        .provider-card { background: rgba(0,0,0,0.4); padding: 20px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08); transition: all 0.3s; }
-        .provider-card:hover { transform: translateY(-5px); border-color: #00d4ff; box-shadow: 0 10px 40px rgba(0,212,255,0.15); }
-        .provider-card h3 { font-size: 1.15rem; margin-bottom: 8px; color: #fff; }
-        .provider-card .desc { font-size: 0.85rem; color: #888; margin-bottom: 10px; }
-        .provider-card .badge { display: inline-block; background: linear-gradient(90deg, #00d4ff, #0099cc); color: #000; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; margin-right: 8px; }
-        .provider-card .badge.trial { background: linear-gradient(90deg, #ff9500, #ff6600); }
-        .provider-card .badge.local { background: linear-gradient(90deg, #34c759, #30d158); }
-        .provider-card .models { margin-top: 12px; font-size: 0.8rem; color: #666; }
-        .provider-card .models span { color: #aaa; }
-        .provider-card .link { display: inline-block; margin-top: 12px; color: #00d4ff; text-decoration: none; font-size: 0.9rem; }
-        .provider-card .link:hover { text-decoration: underline; }
-        .code-block { background: #0d1117; padding: 25px; border-radius: 12px; overflow-x: auto; font-family: 'Monaco', 'Menlo', monospace; font-size: 0.85rem; line-height: 1.7; border: 1px solid rgba(255,255,255,0.1); }
-        .code-block .keyword { color: #ff7b72; }
-        .code-block .string { color: #a5d6ff; }
-        .code-block .comment { color: #8b949e; }
-        .code-block .func { color: #d2a8ff; }
-        .btn { display: inline-block; background: linear-gradient(90deg, #00d4ff, #7b2cbf); color: #fff; padding: 14px 28px; border-radius: 30px; text-decoration: none; font-weight: bold; transition: transform 0.2s; font-size: 1rem; }
-        .btn:hover { transform: scale(1.05); }
-        .btn-outline { background: transparent; border: 2px solid #00d4ff; color: #00d4ff; }
-        .btn-outline:hover { background: #00d4ff; color: #000; }
-        footer { text-align: center; padding: 40px; color: #555; }
-        .stats { display: flex; justify-content: center; gap: 40px; margin-bottom: 30px; flex-wrap: wrap; }
-        .stat { text-align: center; }
-        .stat-num { font-size: 2rem; font-weight: bold; color: #00d4ff; }
-        .stat-label { font-size: 0.9rem; color: #666; }
-        .local-tools { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; }
-        .tool-card { background: rgba(0,0,0,0.4); padding: 20px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08); }
-        .tool-card h3 { color: #34c759; margin-bottom: 8px; }
-        .tool-card p { font-size: 0.85rem; color: #888; }
-        .warning-box { background: rgba(255,149,0,0.1); border: 1px solid rgba(255,149,0,0.3); border-radius: 12px; padding: 20px; margin: 20px 0; }
-        .warning-box h3 { color: #ff9500; margin-bottom: 10px; }
-        .warning-box ul { margin-left: 20px; color: #aaa; }
-        .warning-box li { margin: 8px 0; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a24;
+            --accent: #6366f1;
+            --accent-hover: #818cf8;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border: #2a2a3a;
+            --success: #22c55e;
+            --warning: #f59e0b;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .last-update {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-top: 12px;
+        }
+        
+        .providers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            padding: 40px 0;
+        }
+        
+        .provider-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .provider-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.15);
+        }
+        
+        .provider-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .provider-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .provider-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .provider-status {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--success);
+        }
+        
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .provider-desc {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+        
+        .models-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        
+        .model-tag {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .api-info {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .api-label {
+            font-size: 11px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        
+        .api-value {
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 13px;
+            word-break: break-all;
+        }
+        
+        .api-value code {
+            background: var(--bg-primary);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--accent);
+        }
+        
+        .copy-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-left: 8px;
+        }
+        
+        .copy-btn:hover {
+            background: var(--accent-hover);
+        }
+        
+        .quota-info {
+            display: flex;
+            gap: 16px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        .quota-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .quota-icon {
+            font-size: 16px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 1.75rem; }
+            .providers-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🌐 Free LLM Tokens</h1>
-            <p class="subtitle">整理免费 LLM API 资源，让 AI 开发更简单</p>
-            <div class="stats">
-                <div class="stat"><div class="stat-num">15+</div><div class="stat-label">免费 API</div></div>
-                <div class="stat"><div class="stat-num">3</div><div class="stat-label">本地模型</div></div>
-                <div class="stat"><div class="stat-num">完全</div><div class="stat-label">开源免费</div></div>
-            </div>
-            <div class="hero-buttons">
-                <a href="#free-api" class="btn">🚀 免费 API</a>
-                <a href="#local" class="btn btn-outline">💻 本地模型</a>
-                <a href="https://github.com" target="_blank" class="btn btn-outline">⭐ GitHub</a>
-            </div>
+            <div class="badge">🔥 每日更新</div>
+            <h1>免费 LLM API 资源导航</h1>
+            <p class="subtitle">汇集互联网免费大模型API接口地址、模型参数配置，帮助开发者快速接入AI能力</p>
+            <p class="last-update">最后更新：2026-03-26</p>
         </header>
-
-        <div class="section" id="free-api">
-            <h2>✅ 免费注册可获取的 API (自己注册拿密钥)</h2>
-            <div class="provider-grid">
-                <div class="provider-card">
-                    <h3>Google AI Studio</h3>
-                    <span class="badge">免费</span>
-                    <p class="desc">免费额度最高，支持 Gemini 2.0</p>
-                    <div class="models"><span>模型:</span> Gemini 2.0 Flash, Gemma 3</div>
-                    <a href="https://aistudio.google.com/app/apikey" target="_blank" class="link">→ 获取 API Key</a>
+        
+        <div class="providers-grid">
+            <!-- OpenRouter -->
+            <div class="provider-card">
+                <div class="provider-header">
+                    <div class="provider-logo" style="background: linear-gradient(135deg, #ff6b6b, #feca57);">OR</div>
+                    <span class="provider-name">OpenRouter</span>
+                    <span class="provider-status"><span class="dot"></span>可用</span>
                 </div>
-                <div class="provider-card">
-                    <h3>OpenRouter</h3>
-                    <span class="badge">免费</span>
-                    <p class="desc">每日免费额度，模型最丰富</p>
-                    <div class="models"><span>模型:</span> Llama 3.2, Gemma 3, Qwen3, Mistral</div>
-                    <a href="https://openrouter.ai/settings" target="_blank" class="link">→ 获取 API Key</a>
+                <p class="provider-desc">免费API聚合平台，汇集100+免费模型，支持OpenAI兼容格式</p>
+                <div class="models-list">
+                    <span class="model-tag">GPT-4o Mini</span>
+                    <span class="model-tag">Claude 3.5 Haiku</span>
+                    <span class="model-tag">Llama 3.3</span>
+                    <span class="model-tag">DeepSeek V3</span>
+                    <span class="model-tag">Qwen 2.5</span>
                 </div>
-                <div class="provider-card">
-                    <h3>Groq</h3>
-                    <span class="badge">免费</span>
-                    <p class="desc">推理速度极快，适合开发</p>
-                    <div class="models"><span>模型:</span> Llama 3.1, Mistral, Qwen</div>
-                    <a href="https://console.groq.com/keys" target="_blank" class="link">→ 获取 API Key</a>
+                <div class="api-info">
+                    <div class="api-label">API Endpoint</div>
+                    <div class="api-value">https://openrouter.ai/api/v1/chat/completions <button class="copy-btn" onclick="copyText('https://openrouter.ai/api/v1/chat/completions')">复制</button></div>
                 </div>
-                <div class="provider-card">
-                    <h3>Cloudflare Workers AI</h3>
-                    <span class="badge">免费</span>
-                    <p class="desc">免费无限量，全球CDN加速</p>
-                    <div class="models"><span>模型:</span> Llama 3.1, Mistral</div>
-                    <a href="https://dash.cloudflare.com/?to=/:account/workers-and-pages" target="_blank" class="link">→ 获取 API Key</a>
+                <div class="api-info">
+                    <div class="api-label">文档</div>
+                    <div class="api-value"><a href="https://openrouter.ai/docs" target="_blank" style="color: var(--accent);">https://openrouter.ai/docs</a></div>
                 </div>
-                <div class="provider-card">
-                    <h3>GitHub Models</h3>
-                    <span class="badge">免费</span>
-                    <p class="desc">微软Azure驱动，稳定可靠</p>
-                    <div class="models"><span>模型:</span> Llama 3.2, Phi 4, Mistral</div>
-                    <a href="https://github.com/marketplace/models" target="_blank" class="link">→ 获取 API Key</a>
+                <div class="quota-info">
+                    <span class="quota-item"><span class="quota-icon">💰</span>免费额度有限</span>
+                    <span class="quota-item"><span class="quota-icon">🔑</span>需注册获取Key</span>
                 </div>
-                <div class="provider-card">
-                    <h3>Cerebras</h3>
-                    <span class="badge">免费</span>
-                    <p class="desc">速度全球第一，极速响应</p>
-                    <div class="models"><span>模型:</span> Llama 3.1 70B, Mistral</div>
-                    <a href="https://cloud.inference.ai/" target="_blank" class="link">→ 获取 API Key</a>
+            </div>
+            
+            <!-- Groq -->
+            <div class="provider-card">
+                <div class="provider-header">
+                    <div class="provider-logo" style="background: linear-gradient(135deg, #a855f7, #6366f1);">G</div>
+                    <span class="provider-name">Groq</span>
+                    <span class="provider-status"><span class="dot"></span>可用</span>
                 </div>
-                <div class="provider-card">
-                    <h3>Mistral (La Plateforme)</h3>
-                    <span class="badge">免费</span>
-                    <p class="desc">欧洲最强模型，代码能力强</p>
-                    <div class="models"><span>模型:</span> Mistral Small, Codestral</div>
-                    <a href="https://console.mistral.ai/api-keys/" target="_blank" class="link">→ 获取 API Key</a>
+                <p class="provider-desc">超高速推理芯片，支持800+ tokens/sec，免费配额约14,400次/天</p>
+                <div class="models-list">
+                    <span class="model-tag">Llama 3.3 70B</span>
+                    <span class="model-tag">Mixtral 8x7B</span>
+                    <span class="model-tag">Gemma 2 27B</span>
+                    <span class="model-tag">Llama 3.1 8B</span>
                 </div>
-                <div class="provider-card">
-                    <h3>HuggingFace</h3>
-                    <span class="badge">免费</span>
-                    <p class="desc">开源模型大本营</p>
-                    <div class="models"><span>模型:</span> Qwen, Phi, Llama 各种版本</div>
-                    <a href="https://huggingface.co/settings/tokens" target="_blank" class="link">→ 获取 API Key</a>
+                <div class="api-info">
+                    <div class="api-label">API Endpoint</div>
+                    <div class="api-value">https://api.groq.com/openai/v1/chat/completions <button class="copy-btn" onclick="copyText('https://api.groq.com/openai/v1/chat/completions')">复制</button></div>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">获取Key</div>
+                    <div class="api-value"><a href="https://console.groq.com/api-keys" target="_blank" style="color: var(--accent);">console.groq.com</a></div>
+                </div>
+                <div class="quota-info">
+                    <span class="quota-item"><span class="quota-icon">⚡</span>800+ tokens/sec</span>
+                    <span class="quota-item"><span class="quota-icon">📊</span>约14,400/天</span>
+                </div>
+            </div>
+            
+            <!-- Hugging Face -->
+            <div class="provider-card">
+                <div class="provider-header">
+                    <div class="provider-logo" style="background: linear-gradient(135deg, #ffaa00, #ff6600);">HF</div>
+                    <span class="provider-name">Hugging Face</span>
+                    <span class="provider-status"><span class="dot"></span>可用</span>
+                </div>
+                <p class="provider-desc">免费Serverless推理API，数千个模型可选，支持文本生成/翻译/分类</p>
+                <div class="models-list">
+                    <span class="model-tag">Qwen2.5 72B</span>
+                    <span class="model-tag">Llama 3 70B</span>
+                    <span class="model-tag">Mistral 7B</span>
+                    <span class="model-tag">Phi-3</span>
+                    <span class="model-tag">Command R+</span>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">API Endpoint</div>
+                    <div class="api-value">https://api-inference.huggingface.co/ <button class="copy-btn" onclick="copyText('https://api-inference.huggingface.co/')">复制</button></div>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">获取Key</div>
+                    <div class="api-value"><a href="https://huggingface.co/settings/tokens" target="_blank" style="color: var(--accent);">huggingface.co/settings/tokens</a></div>
+                </div>
+                <div class="quota-info">
+                    <span class="quota-item"><span class="quota-icon">🆓</span>免费额度</span>
+                    <span class="quota-item"><span class="quota-icon">🤖</span>2000+模型</span>
+                </div>
+            </div>
+            
+            <!-- Google Gemini -->
+            <div class="provider-card">
+                <div class="provider-header">
+                    <div class="provider-logo" style="background: linear-gradient(135deg, #4285f4, #34a853);">G</div>
+                    <span class="provider-name">Google Gemini</span>
+                    <span class="provider-status"><span class="dot"></span>可用</span>
+                </div>
+                <p class="provider-desc">Google官方免费API，Gemini 2.0 Flash 免费额度充足</p>
+                <div class="models-list">
+                    <span class="model-tag">gemini-2.0-flash</span>
+                    <span class="model-tag">gemini-1.5-flash</span>
+                    <span class="model-tag">gemini-1.5-pro</span>
+                    <span class="model-tag">gemini-2.0-flash-lite</span>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">API Endpoint</div>
+                    <div class="api-value">https://generativelanguage.googleapis.com/v1beta/ <button class="copy-btn" onclick="copyText('https://generativelanguage.googleapis.com/v1beta/')">复制</button></div>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">获取Key</div>
+                    <div class="api-value"><a href="https://aistudio.google.com/app/apikey" target="_blank" style="color: var(--accent);">aistudio.google.com/apikey</a></div>
+                </div>
+                <div class="quota-info">
+                    <span class="quota-item"><span class="quota-icon">🆓</span>免费额度</span>
+                    <span class="quota-item"><span class="quota-icon">📝</span>15 RPM</span>
+                </div>
+            </div>
+            
+            <!-- DeepSeek -->
+            <div class="provider-card">
+                <div class="provider-header">
+                    <div class="provider-logo" style="background: linear-gradient(135deg, #1e3a5f, #3b82f6);">DS</div>
+                    <span class="provider-name">DeepSeek</span>
+                    <span class="provider-status"><span class="dot"></span>可用</span>
+                </div>
+                <p class="provider-desc">国产顶尖大模型，性价比极高，部分模型免费使用</p>
+                <div class="models-list">
+                    <span class="model-tag">deepseek-chat</span>
+                    <span class="model-tag">deepseek-coder</span>
+                    <span class="model-tag">DeepSeek V3</span>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">API Endpoint</div>
+                    <div class="api-value">https://api.deepseek.com/v1/chat/completions <button class="copy-btn" onclick="copyText('https://api.deepseek.com/v1/chat/completions')">复制</button></div>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">获取Key</div>
+                    <div class="api-value"><a href="https://platform.deepseek.com/api-keys" target="_blank" style="color: var(--accent);">platform.deepseek.com</a></div>
+                </div>
+                <div class="quota-info">
+                    <span class="quota-item"><span class="quota-icon">💵</span>价格低廉</span>
+                    <span class="quota-item"><span class="quota-icon">🇨🇳</span>国内直连</span>
+                </div>
+            </div>
+            
+            <!-- Together AI -->
+            <div class="provider-card">
+                <div class="provider-header">
+                    <div class="provider-logo" style="background: linear-gradient(135deg, #00d4aa, #00a080);">TA</div>
+                    <span class="provider-name">Together AI</span>
+                    <span class="provider-status"><span class="dot"></span>可用</span>
+                </div>
+                <p class="provider-desc">免费推理平台，每周赠送积分，支持主流开源模型</p>
+                <div class="models-list">
+                    <span class="model-tag">Llama 3.3 70B</span>
+                    <span class="model-tag">Qwen 2.5 72B</span>
+                    <span class="model-tag">Mistral 7B</span>
+                    <span class="model-tag">Phi-4</span>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">API Endpoint</div>
+                    <div class="api-value">https://api.together.xyz/v1/chat/completions <button class="copy-btn" onclick="copyText('https://api.together.xyz/v1/chat/completions')">复制</button></div>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">获取Key</div>
+                    <div class="api-value"><a href="https://api.together.xyz/settings/api-keys" target="_blank" style="color: var(--accent);">api.together.xyz</a></div>
+                </div>
+                <div class="quota-info">
+                    <span class="quota-item"><span class="quota-icon">🎁</span>每周赠送</span>
+                    <span class="quota-item"><span class="quota-icon">🔥</span>高速推理</span>
+                </div>
+            </div>
+            
+            <!-- Cloudflare Workers AI -->
+            <div class="provider-card">
+                <div class="provider-header">
+                    <div class="provider-logo" style="background: linear-gradient(135deg, #f38020, #faae40);">CF</div>
+                    <span class="provider-name">Cloudflare Workers AI</span>
+                    <span class="provider-status"><span class="dot"></span>可用</span>
+                </div>
+                <p class="provider-desc">免费边缘推理，每天10万次请求，全球CDN加速</p>
+                <div class="models-list">
+                    <span class="model-tag">llama-3.1-8b</span>
+                    <span class="model-tag">llama-3.2-1b</span>
+                    <span class="model-tag">mistral-7b</span>
+                    <span class="model-tag">gemma-2b</span>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">API Endpoint</div>
+                    <div class="api-value">https://gateway.ai.cloudflare.com/v1/account/{account_id}/workers-ai/ <button class="copy-btn" onclick="copyText('https://gateway.ai.cloudflare.com/v1/account/YOUR_ACCOUNT/workers-ai/')">复制</button></div>
+                </div>
+                <div class="quota-info">
+                    <span class="quota-item"><span class="quota-icon">🆓</span>10万次/天</span>
+                    <span class="quota-item"><span class="quota-icon">🌍</span>全球加速</span>
+                </div>
+            </div>
+            
+            <!-- Azure OpenAI (Free Trial) -->
+            <div class="provider-card">
+                <div class="provider-header">
+                    <div class="provider-logo" style="background: linear-gradient(135deg, #0078d4, #00bcf2);">AZ</div>
+                    <span class="provider-name">Azure OpenAI</span>
+                    <span class="provider-status"><span class="dot"></span>可用</span>
+                </div>
+                <p class="provider-desc">微软Azure免费试用，新用户赠送200美元额度（180天有效）</p>
+                <div class="models-list">
+                    <span class="model-tag">gpt-4</span>
+                    <span class="model-tag">gpt-4o</span>
+                    <span class="model-tag">gpt-4o-mini</span>
+                    <span class="model-tag">o1-preview</span>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">API Endpoint</div>
+                    <div class="api-value">https://{resource}.openai.azure.com/ <button class="copy-btn" onclick="copyText('https://YOUR_RESOURCE.openai.azure.com/')">复制</button></div>
+                </div>
+                <div class="api-info">
+                    <div class="api-label">获取Key</div>
+                    <div class="api-value"><a href="https://azure.microsoft.com/zh-cn/free/cognitive-services/" target="_blank" style="color: var(--accent);">azure.com/free</a></div>
+                </div>
+                <div class="quota-info">
+                    <span class="quota-item"><span class="quota-icon">💵</span>$200额度</span>
+                    <span class="quota-item"><span class="quota-icon">📅</span>180天有效</span>
                 </div>
             </div>
         </div>
-
-        <div class="section">
-            <h2>💳 免费试用 (注册送积分)</h2>
-            <div class="provider-grid">
-                <div class="provider-card">
-                    <h3>Fireworks AI</h3>
-                    <span class="badge trial">$20 积分</span>
-                    <p class="desc">高性能推理，企业级稳定</p>
-                    <div class="models"><span>模型:</span> Llama 3.3, Qwen2.5</div>
-                    <a href="https://fireworks.ai/" target="_blank" class="link">→ 注册获取</a>
-                </div>
-                <div class="provider-card">
-                    <h3>Nebius</h3>
-                    <span class="badge trial">$20 积分</span>
-                    <p class="desc">俄罗斯厂商，模型多</p>
-                    <div class="models"><span>模型:</span> Llama, Qwen, Mistral</div>
-                    <a href="https://nebius.com/" target="_blank" class="link">→ 注册获取</a>
-                </div>
-                <div class="provider-card">
-                    <h3>Novita AI</h3>
-                    <span class="badge trial">$10 积分</span>
-                    <p class="desc">价格便宜，性价比高</p>
-                    <div class="models"><span>模型:</span> 100+ 模型</div>
-                    <a href="https://novita.ai/" target="_blank" class="link">→ 注册获取</a>
-                </div>
-                <div class="provider-card">
-                    <h3>Hyperbolic</h3>
-                    <span class="badge trial">免费</span>
-                    <p class="desc">新兴厂商，价格极低</p>
-                    <div class="models"><span>模型:</span> Llama, Qwen</div>
-                    <a href="https://hyperbolic.xyz/" target="_blank" class="link">→ 注册获取</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="section" id="local">
-            <h2>💻 开源模型本地运行 (完全免费)</h2>
-            <div class="local-tools">
-                <div class="tool-card">
-                    <h3> Ollama</h3>
-                    <p>Mac/Linux/Windows 本地运行大模型，命令行交互，支持Llama、Qwen等多种模型</p>
-                    <a href="https://ollama.com/" target="_blank" style="color:#00d4ff;display:block;margin-top:10px;">→ 下载安装</a>
-                </div>
-                <div class="tool-card">
-                    <h3>🖥️ LM Studio</h3>
-                    <p>桌面应用，图形界面，模型管理+聊天界面，Windows/Mac可用</p>
-                    <a href="https://lmstudio.ai/" target="_blank" style="color:#00d4ff;display:block;margin-top:10px;">→ 下载安装</a>
-                </div>
-                <div class="tool-card">
-                    <h3>🤖 GPT4All</h3>
-                    <p>隐私优先，离线可用，Windows/Mac/Linux全平台支持</p>
-                    <a href="https://gpt4all.io/" target="_blank" style="color:#00d4ff;display:block;margin-top:10px;">→ 下载安装</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>⚡ 快速开始 - Python 代码示例</h2>
-            <p style="color:#888;margin-bottom:15px;">安装依赖：<code style="background:#333;padding:4px 10px;border-radius:6px;">pip install openai</code></p>
-            
-            <div class="code-block">
-<span class="comment"># OpenRouter 示例 (推荐)</span>
-<span class="keyword">from</span> openai <span class="keyword">import</span> OpenAI
-
-client = OpenAI(
-    api_key=<span class="string">"YOUR_OPENROUTER_KEY"</span>,
-    base_url=<span class="string">"https://openrouter.ai/v1"</span>
-)
-
-response = client.chat.completions.create(
-    model=<span class="string">"meta-llama/llama-3.2-3b-instruct:free"</span>,
-    messages=[{<span class="string">"role"</span>: <span class="string">"user"</span>, <span class="string">"content"</span>: <span class="string">"你好!"</span>}]
-)
-<span class="keyword">print</span>(response.choices[0].message.content)</div>
-            
-            <div class="code-block" style="margin-top:15px;">
-<span class="comment"># Google AI Studio 示例</span>
-<span class="keyword">import</span> google.generativeai <span class="keyword">as</span> genai
-
-genai.configure(api_key=<span class="string">"YOUR_GEMINI_KEY"</span>)
-model = genai.GenerativeModel(<span class="string">'gemini-2.0-flash'</span>)
-response = model.generate_content(<span class="string">"Hello!"</span>)
-<span class="keyword">print</span>(response.text)</div>
-            
-            <div class="code-block" style="margin-top:15px;">
-<span class="comment"># Groq 示例 (极速推理)</span>
-<span class="keyword">from</span> openai <span class="keyword">import</span> OpenAI
-
-client = OpenAI(
-    api_key=<span class="string">"YOUR_GROQ_KEY"</span>,
-    base_url=<span class="string">"https://api.groq.com/openai/v1"</span>
-)
-
-response = client.chat.completions.create(
-    model=<span class="string">"llama-3.1-70b-versatile"</span>,
-    messages=[{<span class="string">"role"</span>: <span class="string">"user"</span>, <span class="string">"content"</span>: <span class="string">"你好!"</span>}]
-)</div>
-        </div>
-
-        <div class="warning-box">
-            <h3>⚠️ 重要提醒</h3>
-            <ul>
-                <li><strong>不要分享私钥</strong> - 只分享项目，不要泄露你的 API Key</li>
-                <li><strong>不要滥用</strong> - 这些服务为开发者提供，请合理使用</li>
-                <li><strong>检查最新限制</strong> - 限制可能随时变化，请查看官方文档</li>
-                <li><strong>遵守服务条款</strong> - 确保符合提供商的使用政策</li>
-            </ul>
-        </div>
-
-        <div style="text-align:center;padding:30px;">
-            <p style="color:#666;margin-bottom:20px;">欢迎分享给更多需要的人！</p>
-            <a href="https://github.com" target="_blank" class="btn">📂 查看源码</a>
-        </div>
-
+        
         <footer>
-            <p>MIT License - 自由使用，共享改进</p>
-            <p style="margin-top:10px;font-size:0.8rem;color:#444;">Made with ❤️ for AI Developers</p>
+            <p>🚀 持续更新中，欢迎 <a href="https://github.com/linux503/free-llm-tokens" target="_blank">GitHub Star</a> 支持</p>
+            <p style="margin-top: 8px;">本页面仅供学习交流，请遵守各平台服务条款</p>
         </footer>
     </div>
+    
+    <script>
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('已复制: ' + text);
+            }).catch(err => {
+                console.error('复制失败:', err);
+            });
+        }
+    </script>
 </body>
 </html>
